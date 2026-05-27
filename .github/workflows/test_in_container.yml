@@ -1,5 +1,5 @@
 # This workflow will install Python dependencies and run tests in the docker container
-name: Testing
+name: Testing in Container
 
 on:
   push:
@@ -19,10 +19,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install -e .[test]
+
     - name: Run tests
       run: pytest --pyargs impax_ifire --cov impax_ifire
       env:
         PLATFORM: 'docker'
+    
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4
       env: 
