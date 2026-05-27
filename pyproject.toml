@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=45",
+            "setuptools_scm[toml]>=6.2",
+            "wheel"]
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "impax_ifire"
+description = "A Python package to process and analyze data from the iMPAX iFire instrument."
+readme = "README.rst"
+dynamic = ["version"]
+authors = [{name = "Andrew Robbertz", email="andrew.l.robbertz@nasa.gov"}]
+license = {file = "LICENSE.rst"}
+requires-python = ">=3.12"
+keywords = ["nasa mission", "space weather"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: Apache 2.0",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.8",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+  'astropy>=4.1.0',
+  'numpy>=1.16.0',
+  'swxsoc @ git+https://github.com/swxsoc/swxsoc.git@main',
+]
+
+[project.optional-dependencies]
+dev = [
+  "impax_ifire[docs,test,style]"
+]
+
+docs = [
+  'sphinx',
+  'sphinx-automodapi',
+  'pydata-sphinx-theme',
+]
+
+test = [
+  'pytest',
+  'pytest-astropy',
+  'pytest-cov',
+  'coverage[toml]'
+]
+
+style = ['ruff']
+
+[tool.setuptools.package-data]
+"impax_ifire.data" = ["**"]
+
+[tool.setuptools]
+packages = ["impax_ifire"]
+
+[tool.setuptools_scm]
+write_to = "impax_ifire/_version.py"
+
+[tool.pytest.ini_options]
+testpaths = [
+   "impax_ifire/tests",
+   "docs"
+]
+doctest_plus = "enabled"
+text_file_format = "rst"
+addopts = "--doctest-rst"
+
+[tool.coverage.run]
+omit = [
+  'impax_ifire/__init*',
+  'impax_ifire/conftest.py',
+  'impax_ifire/*setup_package*',
+  'impax_ifire/tests/*',
+  'impax_ifire/*/tests/*',
+  'impax_ifire/extern/*',
+  'impax_ifire/version*',
+  '*/impax_ifire/__init*',
+  '*/impax_ifire/conftest.py',
+  '*/impax_ifire/*setup_package*',
+  '*/impax_ifire/tests/*',
+  '*/impax_ifire/*/tests/*',
+  '*/impax_ifire/extern/*',
+  '*/impax_ifire/version*',
+]
+
