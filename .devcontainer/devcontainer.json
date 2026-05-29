@@ -3,8 +3,8 @@
 {
 	"name": "Ubuntu 20.04 Python 3",
 	// Repo where this image's Dockerfile is maintained: https://github.com/HERMES-SOC/docker-lambda-base
-	"image": "public.ecr.aws/w5r9l1c8/swsoc-docker-lambda-base:latest",
-	"initializeCommand": "docker logout public.ecr.aws && docker pull public.ecr.aws/w5r9l1c8/swsoc-docker-lambda-base:latest",
+	"image": "public.ecr.aws/w5r9l1c8/dev-impax-swsoc-docker-lambda-base:latest",
+	"initializeCommand": "docker logout public.ecr.aws && docker pull public.ecr.aws/w5r9l1c8/dev-impax-swsoc-docker-lambda-base:latest",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"python.pythonPath": "/usr/bin/python3",
