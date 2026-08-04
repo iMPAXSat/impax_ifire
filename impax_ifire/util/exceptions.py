@@ -11,12 +11,12 @@ This code is based on that provided by SunPy see
 import warnings
 
 __all__ = [
-    "iFireWarning",
-    "iFireUserWarning",
     "iFireDeprecationWarning",
     "iFirePendingDeprecationWarning",
-    "warn_user",
+    "iFireUserWarning",
+    "iFireWarning",
     "warn_deprecated",
+    "warn_user",
 ]
 
 

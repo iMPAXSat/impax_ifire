@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 #
 # Configuration file for the Sphinx documentation builder.
 #
@@ -6,8 +5,8 @@
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 import os
-
 import sys
+
 from impax_ifire import __version__
 
 sys.path.insert(0, os.path.abspath(".."))

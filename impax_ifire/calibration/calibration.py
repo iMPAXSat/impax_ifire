@@ -4,21 +4,20 @@ A module for all things calibration.
 
 import random
 from pathlib import Path
-from typing import List, Union
 
 from astropy.time import Time
 
 from impax_ifire import log
 
 __all__ = [
-    "process_file",
     "calibrate_file",
     "get_calibration_file",
+    "process_file",
     "read_calibration_file",
 ]
 
 
-def process_file(data_filename: Path) -> List[Union[Path, None]]:
+def process_file(data_filename: Path) -> list[Path | None]:
     """
     This is the entry point for the pipeline processing.
     It runs all of the various processing steps required.
@@ -72,20 +71,12 @@ def calibrate_file(data_filename: Path, output_level=2) -> Path:
     --------
     """
 
-    log.info(
-        "Despiking removing {num_spikes} spikes".format(
-            num_spikes=random.randint(0, 10)
-        )
-    )
-    log.warning(
-        "Despiking could not remove {num_spikes}".format(
-            num_spikes=random.randint(1, 5)
-        )
-    )
+    log.info(f"Despiking removing {random.randint(0, 10)} spikes")
+    log.warning(f"Despiking could not remove {random.randint(1, 5)}")
 
     calib_file = get_calibration_file(data_filename)
     if calib_file is None:
-        raise ValueError("Calibration file for {} not found.".format(data_filename))
+        raise ValueError(f"Calibration file for {data_filename} not found.")
     else:
         calib_data = read_calibration_file(calib_file)  # NOQA
 
@@ -135,4 +126,4 @@ def read_calibration_file(calib_filename: Path):
 
     # if can't read the file
 
-    return None
+    return

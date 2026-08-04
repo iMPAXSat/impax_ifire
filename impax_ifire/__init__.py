@@ -13,9 +13,9 @@ except ImportError:
 SWXSOC_MISSION = os.getenv("SWXSOC_MISSION", "iMPAX")
 os.environ["SWXSOC_MISSION"] = SWXSOC_MISSION
 
-from swxsoc import config as swxsoc_config  # noqa: E402
-from swxsoc import log as swxsoc_log  # noqa: E402
-from swxsoc import print_config  # noqa: E402
+from swxsoc import config as swxsoc_config
+from swxsoc import log as swxsoc_log
+from swxsoc import print_config
 
 # Load user configuration
 config = swxsoc_config
